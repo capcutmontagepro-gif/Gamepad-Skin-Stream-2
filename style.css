@@ -1,50 +1,71 @@
-/* --- SKIN MANETTE OBS GOLD / DARK --- */
+/* --- SKIN MANETTE GPV V2 : NOIR MAT & OR ÉLECTRIQUE --- */
 
-/* Fond transparent et base manette */
+/* --- 1. Base et Contour Global --- */
 .controller {
+    /* Fond transparent */
     background: transparent !important;
-    filter: drop-shadow(0px 10px 15px rgba(255, 180, 0, 0.3));
+    /* Effet néon doré autour de la manette */
+    filter: drop-shadow(0px 0px 15px rgba(255, 215, 0, 0.4)) !important;
 }
 
-/* Corps de la manette : Noir sombre mat avec bordure dorée */
-.controller .body {
-    background: #121212 !important;
-    border: 2px solid #ffd700 !important;
-    box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.2);
+/* --- 2. Corps de la Manette --- */
+.controller .body,
+.controller svg > path {
+    /* Noir très sombre pour le corps */
+    fill: #101010 !important;
+    /* Bordure dorée fine */
+    stroke: #ffd700 !important;
+    stroke-width: 1px !important;
 }
 
-/* Joysticks et Croix directionnelle (D-Pad) */
-.controller .stick, 
-.controller .dpad .button {
-    background: #1a1a1a !important;
-    border: 1px solid #ffcc00 !important;
+/* --- 3. Joysticks (Analoques) --- */
+.controller .stick-outer,
+.controller .stick-inner,
+.controller .stick-cap {
+    /* Base sombre */
+    fill: #1a1a1a !important;
+    stroke: #ffcc00 !important;
 }
 
-/* Boutons d'action (Croix, Carré, Triangle, Rond) */
-.controller .abxy .button {
-    background: #222222 !important;
-    border: 2px solid #ffd700 !important;
+/* --- 4. Boutons et Croix Directionnelle (D-Pad) --- */
+.controller .button,
+.controller .dpad-button,
+.controller .button-label {
+    /* Boutons sombres au repos */
+    fill: #222222 !important;
+    stroke: #ffd700 !important;
+    /* Texte/icônes dorés */
     color: #ffd700 !important;
 }
 
-/* EFFET DE PRESSION : Quand tu appuies sur les touches (Néon Or) */
-.controller .button.pressed, 
-.controller .dpad .button.pressed,
-.controller .stick.pressed {
-    background: #ffd700 !important;
-    box-shadow: 0 0 15px #ffd700, 0 0 25px #ffaa00 !important;
-    transform: scale(0.95);
-}
-
-/* Gâchettes L1, R1, L2, R2 */
+/* --- 5. Gâchettes (L1/R1, L2/R2) --- */
 .controller .bumper,
 .controller .trigger {
-    background: #2a2a2a !important;
-    border-bottom: 3px solid #ffd700 !important;
+    fill: #181818 !important;
+    stroke: #ffd700 !important;
 }
 
+/* --- 6. Zone Tactile (Touchpad) --- */
+.controller .touchpad {
+    fill: #121212 !important;
+    border: 1px solid #ffcc00 !important;
+}
+
+/* ================================================= */
+/* --- 7. EFFETS DE PRESSION (Quand tu joues) --- */
+/* ================================================= */
+
+/* Couleur unifiée des boutons pressés (Or lumineux) */
+.controller .pressed {
+    fill: #ffd700 !important;
+    stroke: #ffffff !important; /* Bordure blanche pour contraste */
+    /* Effet de brillance néon intense */
+    filter: drop-shadow(0 0 12px #ffd700) drop-shadow(0 0 5px #ffffff) !important;
+}
+
+/* Gâchettes pressées */
 .controller .bumper.pressed,
 .controller .trigger.pressed {
-    background: #ffae00 !important;
-    box-shadow: 0 0 12px #ffae00 !important;
+    fill: #ffaa00 !important;
+    filter: drop-shadow(0 0 8px #ffaa00) !important;
 }
